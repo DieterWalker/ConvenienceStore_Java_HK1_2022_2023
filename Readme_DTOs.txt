@@ -10,6 +10,7 @@ Customer - Khách hàng
 + CustomerName		String
 + CustomerPhone		String
 + CustomerAddress	String
+
 Employee - Nhân Viên
 + EmployeeID		Int 
 + EmployeeName		String

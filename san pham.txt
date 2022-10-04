@@ -1,0 +1,50 @@
+Thực phẩm:
++ Sản phẩm : Trái cây
+  Giá thành : 10000 VNĐ – 50000 VNĐ
++ Sản phẩm : Thịt 
+  Giá thành : 50000 VNĐ 
++ Sản phẩm : Hải sản
+  Giá thành : 80000 VNĐ 
++ Sản phẩm : Gạo
+  Giá thành : 100000 VNĐ 
+Quần áo:
++ Sản phẩm : Quần Jean
+  Giá thành : 200000 VNĐ
++ Sản phẩm : Quần đùi
+  Giá thành : 50000 VNĐ
++ Sản phẩm : Nón
+  Giá thành : 20000 VNĐ
++ Sản phẩm : Áo phông
+  Giá thành : 100000 VNĐ
++ Sản phẩm : Áo khoác
+  Giá thành : 200000 VNĐ
+Nội thất:
++ Sản phẩm : Bàn ghế
+  Giá thành : 2000000 VNĐ
++ Sản phẩm : Bóng đèn
+  Giá thành : 100000 VNĐ
++ Sản phẩm : Gối nệm
+  Giá thành : 100000 VNĐ
+Mỹ phẩm :
++ Sản phẩm : Kem phấn
+  Giá thành : 50000 VNĐ
++ Sản phẩm : Nước hoa
+  Giá thành : 100000 VNĐ
+Giày dép :
++ Sản phẩm : Giày
+  Giá thành : 400000 VNĐ
++ Sản phẩm : Dép
+  Giá thành : 90000 VNĐ
+Gia dụng :
++ Sản phẩm : Bếp ga
+  Giá thành : 1000000 VNĐ
++ Sản phẩm : Nồi chén bát đĩa
+  Giá thành : 10000 VNĐ – 50000 VNĐ
+
+
+
+
+
+
+
+

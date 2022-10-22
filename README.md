@@ -1,2 +1,0 @@
-# ConvenienceStore_Java_HK1_2022_2023
-Java_2022_2023

@@ -1,5 +1,6 @@
 package GUI;
 
+import DAL.DAO;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -86,12 +87,13 @@ public class SignInScreen extends JFrame {
             btnLogin.addActionListener(new ActionListener() {
                     @Override
                         public void actionPerformed(ActionEvent e) {
-                            if (txtUsername.getText().equals("admin") && txtPassword.getText().equals("nam12345") ){
+                            //if (txtUsername.getText().equals("admin") && txtPassword.getText().equals("nam12345") ){
                                 new MainScreen();
                                 dispose();
-                            } else {
-                                JOptionPane.showMessageDialog(rootPane , "Không đăng nhập được do tên tài khoản hoặc mật khẩu sai! " , "Thông tin sai" , HEIGHT , icon_Nocation );
-                            }
+                                DAO.start();
+//                            } else {
+//                                JOptionPane.showMessageDialog(rootPane , "Không đăng nhập được do tên tài khoản hoặc mật khẩu sai! " , "Thông tin sai" , HEIGHT , icon_Nocation );
+//                            }
                         }
                     });  
             

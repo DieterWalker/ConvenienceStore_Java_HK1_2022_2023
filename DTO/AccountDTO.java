@@ -1,55 +1,41 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package today.ConvenienceStore_Java_HK1_2022_2023.DTO;
+package DTO;
 
-/**
- *
- * @author ACER
- */
-public class AccountDTO extends DTO{
-  int EmployeeId;
-  String AccountID,AccountPass,AccountPosition;
-  public AccountDTO(){
-  }
-    public AccountDTO(int EmployeeId,String AccountID,String AccountPass,String AccountPositon){
-        this.AccountID=AccountID;
-        this.AccountPass=AccountPass;
-        this.AccountPosition=AccountPositon;
-        this.EmployeeId=EmployeeId;
-  }
+public class AccountDTO {
+    String Username, Password;
+    int EmployeeID;
 
-    public String getAccountID() {
-        return AccountID;
+    public AccountDTO() {
     }
 
-    public String getAccountPass() {
-        return AccountPass;
+
+    public AccountDTO(String Username, String Password, int EmployeeID) {
+        this.Username = Username;
+        this.Password = Password;
+        this.EmployeeID = EmployeeID;
     }
 
-    public String getAccountPosition() {
-        return AccountPosition;
+    public String getUsername() {
+        return Username;
     }
 
-    public int getEmployeeId() {
-        return EmployeeId;
+    public void setUsername(String Username) {
+        this.Username = Username;
     }
 
-    public void setAccountID(String AccountID) {
-        this.AccountID = AccountID;
+    public String getPassword() {
+        return Password;
     }
 
-    public void setAccountPass(String AccountPass) {
-        this.AccountPass = AccountPass;
-    }
-
-    public void setAccountPosition(String AccountPosition) {
-        this.AccountPosition = AccountPosition;
-    }
-
-    public void setEmployeeId(int EmployeeId) {
-        this.EmployeeId = EmployeeId;
+    public void setPassword(String Password) {
+        this.Password = Password;
     }
     
+    public int getEmployeeID() {
+        return EmployeeID;
+    }
+
+    public void setEmployeeID(int EmployeeID) {
+        this.EmployeeID = EmployeeID;
+    }
+
 }

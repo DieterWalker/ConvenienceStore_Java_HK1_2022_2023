@@ -1,59 +1,51 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package today.ConvenienceStore_Java_HK1_2022_2023.DTO;
+package DTO;
 
 import java.util.Date;
 
-/**
- *
- * @author ACER
- */
-public class OrderDTO extends DTO{
-    int OrderID, EmployeeId, OrderTotal;
-    Date OrderFounded;
-    public OrderDTO(){
-        
-    }
-     public OrderDTO( Date OrderFounded,int OrderID,int OrderTotal,int EmployeeId){
-         this.EmployeeId=EmployeeId;
-         this.OrderFounded=OrderFounded;
-         this.OrderID=OrderID;
-         this.OrderTotal=OrderTotal;
-        
+public class OrderDTO {
+    int OrderID, OrderPrice, EmployeeID;
+    Date OrderDay;
+
+    public OrderDTO() {
     }
 
-    public int getEmployeeId() {
-        return EmployeeId;
-    }
-
-    public Date getOrderFounded() {
-        return OrderFounded;
+    public OrderDTO(int OrderID, int OrderPrice, int EmployeeID, Date OrderDay) {
+        this.OrderID = OrderID;
+        this.OrderPrice = OrderPrice;
+        this.EmployeeID = EmployeeID;
+        this.OrderDay = OrderDay;
     }
 
     public int getOrderID() {
         return OrderID;
     }
 
-    public int getOrderTotal() {
-        return OrderTotal;
-    }
-
-    public void setEmployeeId(int EmployeeId) {
-        this.EmployeeId = EmployeeId;
-    }
-
-    public void setOrderFounded(Date OrderFounded) {
-        this.OrderFounded = OrderFounded;
-    }
-
     public void setOrderID(int OrderID) {
         this.OrderID = OrderID;
     }
 
-    public void setOrderTotal(int OrderTotal) {
-        this.OrderTotal = OrderTotal;
+    public int getOrderPrice() {
+        return OrderPrice;
     }
-     
+
+    public void setOrderPrice(int OrderPrice) {
+        this.OrderPrice = OrderPrice;
+    }
+
+    public Date getOrderDay() {
+        return OrderDay;
+    }
+
+    public void setOrderDay(Date OrderDay) {
+        this.OrderDay = OrderDay;
+    }
+
+    public int getEmployeeID() {
+        return EmployeeID;
+    }
+
+    public void setEmployeeID(int EmployeeID) {
+        this.EmployeeID = EmployeeID;
+    }
+    
 }

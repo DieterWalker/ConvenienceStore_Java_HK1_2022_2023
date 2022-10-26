@@ -11,11 +11,11 @@ import javax.swing.JMenuBar;
 
 public class MainScreen extends JFrame {
     public static final Color LIGHT_BACKGROUND = new Color(227, 253, 253);
-    public static final Color BTN_BACKGROUND = new Color(203, 241, 245);
+    public static final Color BTN_BACKGROUND = Color.black;
     public static final Color BACKGROUND = new Color(166, 227, 233);
-    public static final Color BORDER = new Color(113, 201, 206);
-    public static final Color FOREGROUND =new Color(15, 79, 99);
-    public static final Color BTN_BACKGROUND2 = new Color(26,165,223);
+    public static final Color BORDER = Color.RED;
+    public static final Color FOREGROUND = Color.white;
+    public static final Color BTN_BACKGROUND2 =  Color.black;
     
     ManagerScreen MS;
     AccountantScreen AS;

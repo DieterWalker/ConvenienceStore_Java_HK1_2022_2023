@@ -4,8 +4,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class CategoryDTO extends DTO {
-    int CategoryID;
-    String CategoryName;
+    public int CategoryID;
+    public String CategoryName;
 
     public CategoryDTO() {
     }

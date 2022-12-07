@@ -2,11 +2,11 @@ package BUS;
 
 import DAL.CategoryDAO;
 import DTO.CategoryDTO;
-import DTO.DTO;
-import java.util.List;
+import java.util.ArrayList;
 
-public class CategoryManagerLogic extends ManagerLogic {
-    private CategoryDTO dto;
+public class CategoryManagerLogic implements ManagerLogic {
+    public ArrayList<CategoryDTO> list = new ArrayList<CategoryDTO>();
+    public CategoryDTO dto = new CategoryDTO();
     private boolean edited;
 
     public CategoryManagerLogic() {
@@ -26,12 +26,7 @@ public class CategoryManagerLogic extends ManagerLogic {
 
     @Override
     public void Remove () {
-;
     }
 
-    @Override
-    public List<? extends DTO> getList() {
-        return null;
-    }
     
 }

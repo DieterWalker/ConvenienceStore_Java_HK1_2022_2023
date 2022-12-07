@@ -12,8 +12,8 @@ public class CategoryDAO extends DAO{
         getAllSQL = "select CategoryID, CategoryName " +
                     "from CATEGORY";
         
-        insertSQL = "insert into CATEGORY(CategoryName) " +
-                    "values (?) ";
+        insertSQL = "insert into CATEGORY([CategoryID],[CategoryName]) " +
+                    "values (?,?) ";
         
         deleteSQL = "delete from CATEGORY " +
                     "where CategoryID = ? ";
@@ -46,7 +46,8 @@ public class CategoryDAO extends DAO{
         boolean flag;
         try {
             pstm = DAO.con.prepareStatement(insertSQL);
-            pstm.setString(1,((CategoryDTO) dto).getCategoryName());
+            pstm.setInt(1,((CategoryDTO) dto).getCategoryID());
+            pstm.setString(2,((CategoryDTO) dto).getCategoryName());
             flag = pstm.execute();
         } catch (SQLException e) {
             throw new RuntimeException(e);

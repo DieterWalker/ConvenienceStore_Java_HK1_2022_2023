@@ -25,7 +25,6 @@ public class SalePanel extends MyPanel {
         GUI();
     }
    
-    @Override
     public void GUI(){ 
         this.setBounds(0,0,1350,800);
         this.setVisible(true);

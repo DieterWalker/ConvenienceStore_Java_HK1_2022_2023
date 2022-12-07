@@ -9,9 +9,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public abstract class DAO{
-    private static String connectionURL = "jdbc:sqlserver://DEVCRE-25RGS2HO\\SQLEXPRESS:1433;databaseName=PHONE_ACCESORIES";
-    private static String DataBaseUser = "Manager";
-    private static String DataBasePass = "Manager";
+    private static String connectionURL = "jdbc:sqlserver://localhost:1433;databaseName=PHONE_ACCESORIES";
+    private static String DataBaseUser = "sa";
+    private static String DataBasePass = "14112002";
    
     protected static Connection con;
     protected PreparedStatement pstm;

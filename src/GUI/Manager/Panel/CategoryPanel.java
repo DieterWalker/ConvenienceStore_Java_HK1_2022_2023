@@ -2,9 +2,9 @@ package GUI.Manager.Panel;
 
 import BUS.CategoryManagerLogic;
 import BUS.Helper.DataValidator;
-import BUS.ManagerLogic;
 import DAL.CategoryDAO;
 import DTO.CategoryDTO;
+import javax.swing.JTable;
 import GUI.Manager.ManagerScreen;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -16,6 +16,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.sql.SQLException;
 
 
 public class CategoryPanel extends MyPanel {
@@ -57,7 +58,6 @@ public class CategoryPanel extends MyPanel {
             txtCategoryID.setBounds( 25 , 70 , 275 , 30 );
             txtCategoryID.setFont(new Font( "Jaldi" , Font.BOLD , 16 ));
             txtCategoryID.setForeground(Color.black);
-            txtCategoryID.setEnabled(false);
         
         txtCategoryName = new JTextField();
             txtCategoryName.setBounds( 25 , 140 , 275 , 30 );
@@ -133,9 +133,9 @@ public class CategoryPanel extends MyPanel {
         this.add(btnDelete);
         this.add(btnClear);
         
-        tabCategory.addMouseListener(new java.awt.event.MouseAdapter() {
+        tabCategory.addMouseListener(new MouseAdapter() {
             @Override
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+            public void mouseClicked(MouseEvent evt) {
                 int row = tabCategory.getSelectedRow();
                 if (row >= 0 ){
                     txtCategoryID.setText(Integer.toString((int) tabCategory.getValueAt(row,0)));
@@ -159,9 +159,26 @@ public class CategoryPanel extends MyPanel {
                             JOptionPane.showMessageDialog(manager, sb , "Information is missing!",  JOptionPane.INFORMATION_MESSAGE);
                             return;
                         }
-                        
-                        //add code before clear
+                        CategoryManagerLogic logic = new CategoryManagerLogic();
+                        int id;
+                        id = Integer.parseInt(txtCategoryID.getText());
+                        String name = txtCategoryName.getText().trim();
+                        logic.dto.CategoryID = id;
+                        logic.dto.CategoryName = name;
+                        int flag = 1;
+                        for (CategoryDTO Cdto : logic.list){
+                            String n = Integer.toString(Cdto.CategoryID);
+                            if (txtCategoryID.getText().trim().equalsIgnoreCase(n)){
+                                flag = 0;
+                                break;
+                            }
+                        }
+                        if(flag==1)
+                            logic.Add();
+                        else
+                            //show lỗi trùng id
                         Clear();
+                        Show();
                     }
             });  
             
@@ -178,7 +195,6 @@ public class CategoryPanel extends MyPanel {
                             JOptionPane.showMessageDialog(manager, sb , "Information is missing!",  JOptionPane.INFORMATION_MESSAGE);
                             return;
                         }
-                        //add code before clear
                         Clear();
                     }
             });  
@@ -235,6 +251,7 @@ public class CategoryPanel extends MyPanel {
     }
     
     public void Show() {
+        tableModel.setRowCount(0);
         for(CategoryDTO dto :new CategoryDAO().getAllData()){
             tableModel.addRow(new Object[]{dto.getCategoryID(), dto.getCategoryName()});
         }

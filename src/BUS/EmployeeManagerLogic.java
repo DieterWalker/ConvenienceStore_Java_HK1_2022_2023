@@ -3,16 +3,13 @@ package BUS;
 import DAL.EmployeeDAO;
 import DTO.DTO;
 import DTO.EmployeeDTO;
-import GUI.Manager.ManagerScreen;
 import java.io.IOException;
+import java.util.ArrayList;
 
 
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
-public class EmployeeManagerLogic extends ManagerLogic{
-   
+public class EmployeeManagerLogic implements ManagerLogic{
+    public ArrayList<EmployeeDTO> list = new ArrayList<EmployeeDTO>();
     private EmployeeDTO currentEmployee;
     private boolean edited;
 
@@ -38,13 +35,6 @@ public class EmployeeManagerLogic extends ManagerLogic{
     public void Remove () {
 ;
     }
-
-    @Override
-    public List<? extends DTO> getList() {
-        return null;
-    }
-    
-    
     public void setCurrentEmployee(EmployeeDTO dto){
         this.currentEmployee = dto;
         if(edited){

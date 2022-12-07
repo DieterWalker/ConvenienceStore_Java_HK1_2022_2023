@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class CategoryDAO extends DAO{
+
     public CategoryDAO(){
         getAllSQL = "select CategoryID, CategoryName " +
                     "from CATEGORY";
@@ -45,9 +46,11 @@ public class CategoryDAO extends DAO{
         boolean flag;
         try {
             pstm = DAO.con.prepareStatement(insertSQL);
-            pstm.setInt(1,((CategoryDTO) dto).getCategoryID());
-            pstm.setString(2,((CategoryDTO) dto).getCategoryName());
+            pstm.setString(1,((CategoryDTO) dto).getCategoryName());
+            pstm.setInt(2,((CategoryDTO) dto).getCategoryID());
             flag = pstm.execute();
+            if(flag)
+                System.out.println("succeed");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

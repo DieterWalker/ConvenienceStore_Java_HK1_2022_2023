@@ -40,7 +40,8 @@ Create table PRODUCT(
 Create table SALE(
 	SaleID int NOT NULL,
 	ProductID int,
-        SaleName nvarchar(100);
+	SaleStart date,
+	SaleEnd date, 
 	SaleRate float
 
 )

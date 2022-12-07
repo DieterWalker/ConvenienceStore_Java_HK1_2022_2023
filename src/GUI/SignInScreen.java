@@ -1,6 +1,6 @@
 package GUI;
 
-import GUI.Helper.DataValidator;
+import BUS.Helper.DataValidator;
 import GUI.Cashier.CashierScreen;
 import DAL.DAO;
 import GUI.Manager.ManagerScreen;

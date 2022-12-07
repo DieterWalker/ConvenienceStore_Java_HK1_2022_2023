@@ -21,10 +21,13 @@ public class CategoryManagerLogic implements ManagerLogic {
 
     @Override
     public void Edit() {
-
+        new CategoryDAO().updateItem(dto);
     }
 
     @Override
     public void Remove () {
+        new CategoryDAO().deleteItem(dto);
     }
+
+    
 }

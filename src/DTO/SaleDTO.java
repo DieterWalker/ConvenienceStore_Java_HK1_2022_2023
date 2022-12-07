@@ -1,10 +1,8 @@
 package DTO;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.Date;
 
-public class SaleDTO extends DTO {
+public class SaleDTO {
     int SaleID, ProductID;
     String SaleName;
     float SaleRate;
@@ -51,20 +49,5 @@ public class SaleDTO extends DTO {
         this.SaleRate = SaleRate;
     }
     
-    @Override
-    public boolean retriveData(ResultSet rs) {
-        boolean flag;
-        try {
-            this.SaleID = rs.getInt(1);
-            this.ProductID = rs.getInt(2);
-            this.SaleName = rs.getString(3);
-            this.SaleRate= rs.getFloat(4);
-            flag = true;
-        } catch (SQLException e) {
-            flag = false;
-        }
-        return flag;
-    }
-
     
 }

@@ -1,17 +1,14 @@
 package DTO;
     
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
-
-public class ProductDTO extends DTO {
+public class ProductDTO {
     int ProductID, ProductStorage, CategoryID,  ProductPrice;
-    String ProductName , ProductBrand, ProductWarranty, ProductImage;
+    String ProductName , ProductBrand, ProductWarranty ; 
+    byte[] ProductImage;
     
     public ProductDTO() {
     }
 
-    public ProductDTO(int ProductID, int ProductStorage, int CategoryID, int ProductPrice, String ProductName, String ProductBrand, String ProductWarranty, String ProductImage) {
+    public ProductDTO(int ProductID, int ProductStorage, int CategoryID, int ProductPrice, String ProductName, String ProductBrand, String ProductWarranty, byte[] ProductImage) {
         this.ProductID = ProductID;
         this.ProductStorage = ProductStorage;
         this.CategoryID = CategoryID;
@@ -78,30 +75,12 @@ public class ProductDTO extends DTO {
         this.ProductWarranty = ProductWarranty;
     }
 
-    public String getProductImage() {
+    public byte[] getProductImage() {
         return ProductImage;
     }
 
-    public void setProductImage(String ProductImage) {
+    public void setProductImage(byte[] ProductImage) {
         this.ProductImage = ProductImage;
     }
 
-    @Override
-    public boolean retriveData(ResultSet rs) {
-        boolean flag;
-        try {
-            this.ProductID = rs.getInt(1);
-            this.ProductName = rs.getString(2);
-            this.ProductImage = rs.getString(3);
-            this.CategoryID = rs.getInt(4);
-            this.ProductBrand= rs.getString(5);
-            this.ProductWarranty= rs.getString(6);
-            this.ProductStorage= rs.getInt(7);
-            this.ProductPrice= rs.getInt(8);
-            flag = true;
-        } catch (SQLException e) {
-            flag = false;
-        }
-        return flag;
-    }
 }

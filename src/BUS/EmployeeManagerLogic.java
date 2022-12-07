@@ -23,7 +23,7 @@ public class EmployeeManagerLogic implements ManagerLogic{
 
     @Override
     public void Add() {
-        
+        edited = false;
     }
 
     @Override

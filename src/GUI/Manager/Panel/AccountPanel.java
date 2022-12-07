@@ -1,10 +1,10 @@
 package GUI.Manager.Panel;
 
-import BUS.AccountManagerLogic;
-import DTO.AccountDTO;
-import GUI.Helper.DataValidator;
+import BUS.Helper.DataValidator;
+import BUS.Helper.IDCaculation;
 import GUI.Manager.ManagerScreen;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -70,6 +70,7 @@ public class AccountPanel extends MyPanel {
             txtAccountID.setBounds( 25 , 70 , 275 , 30 );
             txtAccountID.setFont(new Font( "Jaldi" , Font.BOLD , 16 ));
             txtAccountID.setForeground(Color.black);
+            txtAccountID.setEnabled(false);
             
         txtAccountUserName = new JTextField();
             txtAccountUserName.setBounds( 25 , 210 , 275 , 30 );
@@ -205,7 +206,6 @@ public class AccountPanel extends MyPanel {
                             return;
                         }
                         StringBuilder sb = new StringBuilder();
-                        DataValidator.validateTextEmpty(txtAccountID, sb, "Please enter AccountID" );
                         DataValidator.validateTextEmpty(txtAccountUserName, sb, "Please enter Username" );
                         DataValidator.validateTextEmpty(txtAccountPassword, sb, "Please enter Password" );
                         if (sb.length() > 0){
@@ -214,35 +214,6 @@ public class AccountPanel extends MyPanel {
                         }
                         
                         //add code before clear
-                        AccountManagerLogic logic = new AccountManagerLogic();
-                        logic.dto.AccountID = Integer.parseInt(txtAccountID.getText());
-                        logic.dto.Password = cbbEmployeeID.getSelectedItem().toString();
-                        logic.dto.Username = txtAccountUserName.getText().trim();
-                        logic.dto.Password = txtAccountPassword.getText().trim();
-                        
-                        if ( radAccountant.isSelected() == true )
-                            logic.dto.Position = "Accountant";
-                        
-                        if ( radCashier.isSelected() == true )
-                            logic.dto.Position = "Cashier";
-                        
-                        if ( radManager.isSelected() == true )
-                            logic.dto.Position = "Manager";
-                        
-                        int flag = 1;
-                        for (AccountDTO Adto : logic.list){
-                            String n = Integer.toString(Adto.AccountID);
-                            if (txtAccountID.getText().trim().equalsIgnoreCase(n)){
-                                flag = 0;
-                                break;
-                            }
-                        }
-                        if(flag==1) {
-                            logic.Add();
-                        } else {
-                            JOptionPane.showMessageDialog(manager, "The ID matches the product already in the database!" , "Information is wrong!",  JOptionPane.INFORMATION_MESSAGE);
-                            return;
-                        }
                         Clear();
                     }
             });  

@@ -1,6 +1,6 @@
 package GUI.Manager.Panel;
 
-import GUI.Helper.DataValidator;
+import BUS.Helper.DataValidator;
 import GUI.Manager.ManagerScreen;
 import java.awt.Color;
 import java.awt.Font;

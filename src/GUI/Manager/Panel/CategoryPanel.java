@@ -1,7 +1,7 @@
 package GUI.Manager.Panel;
 
 import BUS.CategoryManagerLogic;
-import GUI.Helper.DataValidator;
+import BUS.Helper.DataValidator;
 import DAL.CategoryDAO;
 import DTO.CategoryDTO;
 import javax.swing.JTable;
@@ -159,7 +159,6 @@ public class CategoryPanel extends MyPanel {
                             JOptionPane.showMessageDialog(manager, sb , "Information is missing!",  JOptionPane.INFORMATION_MESSAGE);
                             return;
                         }
-                        
                         CategoryManagerLogic logic = new CategoryManagerLogic();
                         int id;
                         id = Integer.parseInt(txtCategoryID.getText());
@@ -174,12 +173,9 @@ public class CategoryPanel extends MyPanel {
                                 break;
                             }
                         }
-                        if(flag==1) {
+                        if(flag==1)
                             logic.Add();
-                        } else {
-                            JOptionPane.showMessageDialog(manager, "The ID matches the product already in the database!" , "Information is wrong!",  JOptionPane.INFORMATION_MESSAGE);
-                            return;
-                        }
+                        else
                             //show lỗi trùng id
                         Clear();
                         Show();
@@ -199,7 +195,13 @@ public class CategoryPanel extends MyPanel {
                             JOptionPane.showMessageDialog(manager, sb , "Information is missing!",  JOptionPane.INFORMATION_MESSAGE);
                             return;
                         }
+                        CategoryManagerLogic logic = new CategoryManagerLogic();
+                        int id;
+                        id = Integer.parseInt(txtCategoryID.getText());
+                        logic.dto.CategoryID = id;
+                        logic.Remove();
                         Clear();
+                        Show();
                     }
             });  
             
@@ -219,8 +221,29 @@ public class CategoryPanel extends MyPanel {
                             JOptionPane.showMessageDialog(manager, sb , "Information is missing!",  JOptionPane.INFORMATION_MESSAGE);
                             return;
                         }
-                        //add code before clear
+                        CategoryManagerLogic logic = new CategoryManagerLogic();
+                        int id;
+                        id = Integer.parseInt(txtCategoryID.getText());
+                        String name = txtCategoryName.getText().trim();
+                        logic.dto.CategoryID = id;
+                        logic.dto.CategoryName = name;
+                        int flag = 1;
+                        for (CategoryDTO Cdto : logic.list){
+                            String n = Integer.toString(Cdto.CategoryID);
+                            if (txtCategoryID.getText().trim().equalsIgnoreCase(n)){
+                                flag = 1;
+                            }
+                            else{
+                                flag = 0;
+                                break;
+                            }
+                        }
+                        if(flag==1)
+                            logic.Edit();
+                        else
+                            //show lỗi ko có id phù hợp
                         Clear();
+                        Show();
                     }
             });  
             

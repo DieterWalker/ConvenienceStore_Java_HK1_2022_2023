@@ -1,7 +1,7 @@
 package GUI.Cashier;
 
-import GUI.Helper.DataValidator;
-import static GUI.Helper.IDCaculation.FindID;
+import BUS.Helper.DataValidator;
+import static BUS.Helper.IDCaculation.FindID;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

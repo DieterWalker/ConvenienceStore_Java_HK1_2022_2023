@@ -16,6 +16,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Vector;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
@@ -369,8 +371,8 @@ public class ReceiptScreen extends JFrame {
                                 txtProductCategory.setText(Integer.toString(Pdto.getCategoryID()));
                                 txtProductPrice.setText(Integer.toString(Price));
                                 txtProductSale.setText("0");
-                            //    txtProductAmount.setText(Integer.toString((int)tabReceiptDetailData.getValueAt(row, 2)));
-                            //    txtProductTotalPrice.setText(Float.toString((float)tabReceiptDetailData.getValueAt(row, 3))); 
+//                                txtProductAmount.setText(Integer.toString((int)tabReceiptDetailData.getValueAt(row, 2)));
+//                                txtProductTotalPrice.setText(Float.toString((float)tabReceiptDetailData.getValueAt(row, 3))); 
                                 txtStorage.setText(Integer.toString(Pdto.getProductStorage()));
                                 
                                 String filename = null;
@@ -478,7 +480,9 @@ public class ReceiptScreen extends JFrame {
                         String ProductID = txtProductID.getText() ;
                         String ProductName = txtProductName.getText();
                         String ProductQuantity = txtProductAmount.getText();
-                        String ProductPrice = txtProductTotalPrice.getText();
+                        int ProductPrice = Integer.parseInt(txtProductPrice.getText());
+                        //String ProductPrice = txtProductTotalPrice.getText();
+                        int ProductTotalPrice = Integer.parseInt(txtProductAmount.getText())*ProductPrice;
                         if ( tabReceiptDetailData.getRowCount() != 0){ 
                             int Tflag = 0;
                             for (int i = 0; i < tabReceiptDetailData.getRowCount(); i++){
@@ -496,14 +500,21 @@ public class ReceiptScreen extends JFrame {
                             }
                             
                             if (Tflag == 0){
-                                tableModel.addRow(new Object[]{ProductID, ProductName, ProductQuantity, ProductPrice});
+                                tableModel.addRow(new Object[]{ProductID, ProductName, ProductQuantity, ProductTotalPrice});
                                 
                             }
                             Tflag = 0;
                         } else {
-                            tableModel.addRow(new Object[]{ProductID, ProductName, ProductQuantity, ProductPrice});
+                            tableModel.addRow(new Object[]{ProductID, ProductName, ProductQuantity, ProductTotalPrice});
                         }
-                        
+                        int totalPrice = 0;
+                        Vector<Vector> a = tableModel.getDataVector();
+                        Iterator<Vector> it = a.iterator();
+                        while(it.hasNext()){
+                            Vector i = it.next();
+                            totalPrice = totalPrice + (int)i.get(3);
+                        }
+                        txtTotalPrice.setText(Integer.toString(totalPrice));
 
                         
                         //add code before clear
@@ -524,11 +535,24 @@ public class ReceiptScreen extends JFrame {
                             return;
                         }
                         // Kiểm tra số lượng sản phẩm 
-                        DataValidator.validateTextEmpty(txtProductAmount, sb, "Please enter purchase quantity!" );
-                        if ( sb.length() > 0 || Integer.parseInt(txtPaymentPrice.getText()) > 0  ){
-                            JOptionPane.showMessageDialog(rootPane, "Make sure you have entered the correct informatio!", "Information is wrong or missing!",  JOptionPane.INFORMATION_MESSAGE);
-                            return;
+//                        DataValidator.validateTextEmpty(txtProductAmount, sb, "Please enter purchase quantity!" );
+//                        if ( sb.length() > 0 || Integer.parseInt(txtPaymentPrice.getText()) > 0  ){
+//                            JOptionPane.showMessageDialog(rootPane, "Make sure you have entered the correct informatio!", "Information is wrong or missing!",  JOptionPane.INFORMATION_MESSAGE);
+//                            return;
+//                        }
+                        String ProductID = txtProductID.getText() ;
+                        Vector<Vector> a = tableModel.getDataVector();
+                        int flag = -1;
+                        Iterator<Vector> it = a.iterator(); 
+                        while(it.hasNext()) {
+                            Vector i = it.next();
+                            if (i.get(0)==Integer.valueOf(ProductID)){
+                                break;
+                            }
+                            else
+                                flag++;
                         }
+                        tableModel.removeRow(flag);
                         //add code before clear
                         
                         

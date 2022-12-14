@@ -1,7 +1,5 @@
 package BUS;
 
-package BUS;
-
 import DAL.ReceiptDetailDAO;
 import DTO.ReceiptDetailDTO;
 import java.util.ArrayList;
